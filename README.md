@@ -1,2 +1,2 @@
 # Masai-Assignments
-practice
+Practice
