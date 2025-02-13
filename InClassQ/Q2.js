@@ -364,15 +364,15 @@
 //   console.log("Hello World");
 // }
 
-// var greeting = "Hello";
-// function outer() {
-//   var greeting = "Hi";
-//   function inner() {
-//     console.log(greeting);
-//   }
-//   inner();
-// }
-// outer();
+var greeting = "Hello";
+function outer() {
+  console.log(greeting);
+  function inner() {
+    console.log(greeting);
+  }
+  inner();
+}
+outer();
 
 // if (true) {
 //   var a = 20;

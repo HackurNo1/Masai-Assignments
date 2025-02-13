@@ -1,9 +1,9 @@
 function getAccessMessage(user) {
-  return user.role === "admin"
+  return user.role == "admin"
     ? user.active
       ? "Admin Access Granted!"
-      : "Admin Access Revoked"
-    : user.role === "user"
+      : "Admin Acsess revoked"
+    : user.role == "user"
     ? user.active
       ? "User Access Granted!"
       : "User Access Revoked"
