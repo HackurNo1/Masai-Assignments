@@ -364,17 +364,50 @@
 //   console.log("Hello World");
 // }
 
-var greeting = "Hello";
-function outer() {
-  console.log(greeting);
-  function inner() {
-    console.log(greeting);
-  }
-  inner();
-}
-outer();
+// var greeting = "Hello";
+// function outer() {
+//   console.log(greeting);
+//   function inner() {
+//     console.log(greeting);
+//   }
+//   inner();
+// }
+// outer();
 
 // if (true) {
 //   var a = 20;
 // }
 // console.log(a);
+
+// let ans = 0;
+// let str = "aba";
+// for (let i = 0; i < str.length; i++) {
+//   let asc = str[i].charCodeAt();
+//   asc -= 96;
+//   ans += asc;
+// }
+// console.log(ans);
+
+// console.log((4 + 4) % 9);
+
+// let num = 57 - 48;
+// console.log(((num + 4) % 9) + 48);
+
+// let str = "All-convoYs-9-:Alert1";
+// let key = 4;
+// let ans = "";
+// for (let i = 0; i < str.length; i++) {
+//   if (str[i] == "-" || str[i] == "," || str[i] == ";" || str[i] == "%") {
+//     ans += str[i];
+//   } else if (str[i] >= "a" && str[i] <= "z") {
+//     let num = str[i].charCodeAt() - 97;
+//     ans += String.fromCharCode(((num + 4) % 26) + 97);
+//   } else if (str[i] >= "A" && str[i] <= "Z") {
+//     let num = str[i].charCodeAt() - 65;
+//     ans += String.fromCharCode(((num + 4) % 26) + 65);
+//   } else if (str[i] >= "0" && str[i] <= "9") {
+//     let num = str[i].charCodeAt() - 48;
+//     ans += String.fromCharCode(((num + 4) % 10) + 48);
+//   }
+// }
+// console.log(ans);
