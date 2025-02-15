@@ -413,4 +413,52 @@
 // console.log(ans);
 
 // let st = [1, 2, 3, 4, 4, 4];
-// console.log(st.pop());
+// // console.log(st.pop());
+
+// function outer() {
+//   let a = 10;
+//   function inner() {
+//     a++;
+//     console.log(a);
+//   }
+//   return inner;
+// }
+
+// const result = outer();
+// result();
+
+// function memo(fn) {
+//   let cache = {};
+//   return function (...args) {
+//     let argStringify = JSON.stringify(args);
+//     if (cache[argStringify] === undefined) {
+//       cache[argStringify] = fn(...args);
+//     }
+//     return cache[argStringify];
+//   };
+// }
+
+// function multiply(num1, num2) {
+//   for (let i = 0; i < 10000; i++) {}
+//   return num1 * num2;
+// }
+// const effecientMul = memo(multiply);
+// console.time("First call");
+// console.log(effecientMul(9467, 7649));
+// console.timeEnd("First call");
+
+// console.time("Second call");
+// console.log(effecientMul(9467, 7649));
+// console.timeEnd("Second call");
+
+// function add(a) {
+//   return function (b) {
+//     if (b !== undefined) {
+//       return add(a + b);
+//     } else {
+//       return a;
+//     }
+//   };
+// }
+
+// console.log(add(5)(2)(3)());
