@@ -730,3 +730,25 @@
 // greet.call(obj, () => {
 //   console.log(`Hello ${this.name}`);
 // }); // Output: Hello RAJU
+
+// function solveProblem(n) {
+//   //write code here.
+//   let sum = 0;
+//   let ans = 0;
+//   while (n > 0) {
+//     sum += n % 10;
+//     n = Math.floor(n / 10);
+//     ans = sum;
+//     if (n < 0) {
+//       n = sum;
+//       sum = 0;
+//     }
+//   }
+
+//   console.log(ans);
+// }
+// solveProblem(45674738334);
+
+// let str = "s tr le";
+// str = str.replace(/\s/g, "");
+// console.log(str);
