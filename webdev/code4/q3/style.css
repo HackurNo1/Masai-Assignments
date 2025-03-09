@@ -1,0 +1,24 @@
+/* Universal Selector: Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ID Selector: Style h1 with id="main-title" */
+#main-title {
+  font-size: 32px;
+  color: darkblue;
+  text-align: center;
+}
+
+/* ID Selector: Style h2 with id="subtitle" */
+#subtitle {
+  font-size: 24px;
+  color: darkgreen;
+}
+
+/* Element Selector: Style paragraphs */
+p {
+  padding: 10px;
+  border: 1px solid lightgray;
+}
