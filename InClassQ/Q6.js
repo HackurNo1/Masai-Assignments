@@ -10,7 +10,7 @@
 
 // // // function timer(duration, onComplete) {
 // // //   setTimeout(() => {
-// // //     onComplete(`Timer of duration ${duration} is done`);
+// //     onComplete(`Timer of duration ${duration} is done`);
 // // //   }, duration);
 // // // }
 
@@ -178,3 +178,27 @@
 //   console.log(obj);
 // }
 // test("aaeiooou");
+
+let obj = {
+  rancho: 45,
+  chatur: 32,
+  raju: 30,
+  farhan: 28,
+  virus: 32,
+  joy: 45,
+};
+let arr = [];
+console.log(obj);
+for (let i = 0; i < 6; i++) {
+  let max = -Infinity;
+  let name;
+  for (const key in obj) {
+    if (max < obj[key]) {
+      max = obj[key];
+      name = key;
+    }
+  }
+  arr.push(name);
+  delete obj[name];
+}
+console.log(arr);
