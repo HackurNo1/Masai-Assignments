@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        border: 2px solid black;
+        border-top: 0px;
+        border-right: 0px;
+        width: 80%;
+        /* max-width: 800px; */
+
+        height: 50vh;
+        display: flex;
+        align-items: end;
+        justify-content: space-evenly;
+        margin: auto;
+      }
+      .box > div {
+        flex-grow: 1;
+      }
+      .box > div:nth-of-type(1) {
+        background-color: cyan;
+        width: 50px;
+        height: 90%;
+      }
+      .box > div:nth-of-type(2) {
+        background-color: greenyellow;
+        width: 50px;
+        height: 60%;
+      }
+      .box > div:nth-of-type(3) {
+        background-color: blue;
+        width: 50px;
+        height: 80%;
+      }
+      .box > div:nth-of-type(4) {
+        background-color: red;
+        width: 50px;
+        height: 50%;
+      }
+      .box > div:nth-of-type(5) {
+        background-color: brown;
+        width: 50px;
+        height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>
