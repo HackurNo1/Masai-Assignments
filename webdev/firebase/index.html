@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  async function gett() {
+    try {
+      let res = await fetch(
+        "https://test-project-1-38798-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json"
+      );
+      let data = await res.json();
+      let dataArray = Object.entries(data).map(([id, data]) => ({
+        id,
+        ...data,
+      }));
+      console.log(dataArray);
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    } finally {
+      console.log("Fetch attempt finished");
+    }
+  }
+  gett();
+</script>

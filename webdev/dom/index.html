@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 500px;
+        height: 50px;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="username" /><br />
+    <input type="text" placeholder="email" /><br />
+    <input type="text" placeholder="password" /><br />
+    <div></div>
+  </body>
+</html>
+
+<script>
+  let p = document.createElement("button");
+  p.onclick = handleClick;
+  p.innerText = "Submit";
+  let d = document.querySelector("div");
+  d.appendChild(p);
+
+  function handleClick() {
+    console.log("Clicked");
+  }
+</script>

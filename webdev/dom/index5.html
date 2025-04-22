@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input" type="text" style="border: 2px solid" />
+    <button onclick="genrate()">genrate</button>
+    <ul id="ul"></ul>
+  </body>
+</html>
+<script>
+  let input = document.getElementById("input");
+  let ul = document.getElementById("ul");
+  let str = "";
+  input.addEventListener("keypress", (e) => {
+    str += e.key;
+  });
+
+  function genrate() {
+    let li = document.createElement("li");
+    li.innerText = str;
+    ul.appendChild(li);
+    str = "";
+  }
+</script>

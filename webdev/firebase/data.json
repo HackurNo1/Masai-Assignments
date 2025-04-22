@@ -1,0 +1,16 @@
+{
+  "movies": {
+    "m1": {
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "release_year": 2010,
+      "genre": "Sci-Fi"
+    },
+    "m2": {
+      "title": "The Dark Knight",
+      "director": "Christopher Nolan",
+      "release_year": 2008,
+      "genre": "Action"
+    }
+  }
+}

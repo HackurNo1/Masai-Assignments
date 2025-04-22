@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="genrate()">Genrate List</button>
+    <ul id="list"></ul>
+  </body>
+</html>
+<script>
+  let arr = ["apple", " banana", "orange", "kiwi", "mango"];
+
+  function genrate() {
+    let ul = document.getElementById("list");
+    ul.innerHTML = "";
+    arr.forEach((ele) => {
+      let li = document.createElement("li");
+      li.innerText = ele;
+      ul.appendChild(li);
+    });
+  }
+</script>
