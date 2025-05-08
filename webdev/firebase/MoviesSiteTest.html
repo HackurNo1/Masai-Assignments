@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies App</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background-color: white;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 1300px;
+        margin: auto;
+        padding: 20px;
+      }
+      input {
+        margin: 5px;
+        padding: 8px;
+        width: 200px;
+      }
+      button {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      #cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        background-color: yellow;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .card {
+        background-color: lightblue;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: transform 0.2s;
+        height: 100%;
+        padding-bottom: 10px;
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 10px;
+      }
+      .card p {
+        font-size: 16px;
+        padding: 0 10px;
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Movies</h1>
+      <input type="text" id="title" placeholder="Enter movie name" />
+      <input type="text" id="genre" placeholder="Enter movie genre" />
+      <input type="text" id="year" placeholder="Enter movie year" />
+      <input type="text" id="img" placeholder="Enter movie image URL" />
+      <button id="submit">Submit</button>
+      <div id="cards"></div>
+    </div>
+
+    <script>
+      let data;
+
+      async function fetchFunction() {
+        try {
+          let fetchData = await fetch(
+            "https://test-project-1-38798-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json"
+          );
+          let jsonData = await fetchData.json();
+          data = jsonData
+            ? Object.entries(jsonData).map(([id, movie]) => ({ id, ...movie }))
+            : [];
+          display(data);
+        } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+      }
+
+      function display(data) {
+        let cards = document.getElementById("cards");
+        cards.innerHTML = "";
+        data.forEach((ele) => {
+          let card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+            <img src="${ele.movieImg}" alt="Movie Image" />
+            <p>Title: ${ele.movieTitle}</p>
+            <p>Genre: ${ele.movieGenre}</p>
+            <p>Year: ${ele.movieYear}</p>
+            <button onclick="deleteMovie('${ele.id}')">Delete</button>
+          `;
+          cards.appendChild(card);
+        });
+      }
+
+      document.getElementById("submit").addEventListener("click", async () => {
+        let title = document.getElementById("title").value;
+        let genre = document.getElementById("genre").value;
+        let year = document.getElementById("year").value;
+        let img = document.getElementById("img").value;
+
+        let addedMovie = {
+          movieTitle: title,
+          movieGenre: genre,
+          movieYear: year,
+          movieImg: img,
+        };
+
+        try {
+          await fetch(
+            "https://test-project-1-38798-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(addedMovie),
+            }
+          );
+          fetchFunction();
+        } catch (error) {
+          console.log("Error updating data:", error);
+        }
+      });
+
+      async function deleteMovie(movieId) {
+        try {
+          await fetch(
+            `https://test-project-1-38798-default-rtdb.asia-southeast1.firebasedatabase.app/movies/${movieId}.json`,
+            {
+              method: "DELETE",
+            }
+          );
+          fetchFunction();
+        } catch (error) {
+          console.log("Error deleting movie:", error);
+        }
+      }
+
+      fetchFunction(); // Initial fetch
+    </script>
+  </body>
+</html>
